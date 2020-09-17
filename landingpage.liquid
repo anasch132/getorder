@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+</head>
+<body>
+{% if customer.id != 0%}
+<h1>welecome {{ customer.name }}</h1>
+<p>This is a landing to show that you are one of our customers</p>
+{% else %}
+<h1>sorry but you are not sign-in</h1>
+<p>you can create an account to have full access to our shop</p>
+{%endif%}
+
+</body>
+</html>
