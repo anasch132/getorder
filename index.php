@@ -25,8 +25,12 @@ foreach($collects as $collect){
 		echo $products['product']['id'];
 	    
 
+    		$images_count = shopify_call($token, $shop, "/admin/api/2020-07/products/".$products['product']['id']."/images.json", array(), 'GET');
     		$images = shopify_call($token, $shop, "/admin/api/2020-07/products/".$products['product']['id']."/images.json", array(), 'GET');
+	    	$image_count = json_decode($image['reponse'], JSON_PRETTY_PRINT);
 		$images = json_decode($images['response'], JSON_PRETTY_PRINT);
+	    
+	    	print_r($image_count);
 		$item_default_image = $images['images'][1]['src'];
 
 		echo '<img src="'.$item_default_image.'" style="width: 200px; height: 230px;"/>';
