@@ -32,7 +32,11 @@ foreach($collects as $collect){
 	    	
 	    	
 	    
-		$item_default_image = $images['images'][1]['src'];
+		$i = 0;
+	    
+	    while($images['images'][$i])$i++;
+	    
+		    $item_default_image = $images['images'][$i - 1]['src'];
 		    
 
 		echo '<img src="'.$item_default_image.'" style="width: 200px; height: 230px;"/>';
