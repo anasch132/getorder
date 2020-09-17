@@ -30,7 +30,12 @@ foreach($collects as $collect){
 	    	$image_count = json_decode($image['reponse'], JSON_PRETTY_PRINT);
 		$images = json_decode($images['response'], JSON_PRETTY_PRINT);
 	    
-	    	print_r($images['images']['src']);
+	    	echo $images['images'][0]['src'];
+	    	echo $images['images'][1]['src'];
+	    	echo $images['images'][2]['src'];
+	    	echo $images['images'][3]['src'];
+	    	echo $images['images'][4]['src'];
+	    
 		$item_default_image = $images['images'][1]['src'];
 
 		echo '<img src="'.$item_default_image.'" style="width: 200px; height: 230px;"/>';
