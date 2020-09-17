@@ -10,8 +10,12 @@ ksort($requests);
 $token = "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";
 $shop = "firstone132";
 
-$collectionList = shopify_call($token, $shop, "/admin/api/2020-07/custom_collections.json", array(), 'GET');
+$collectionList = shopify_call($token, $shop, "/admin/api/2020-07/orders.json?status=any", array(), 'GET');
 $collectionList = json_decode($collectionList['response'], JSON_PRETTY_PRINT);
+
+
+echo $collectionList;
+exit();
 $collection_id = $collectionList['custom_collections'][0]['id'];
 
 $array = array("collection_id"=>$collection_id);
