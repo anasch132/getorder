@@ -34,12 +34,14 @@ foreach($collects as $collect){
 	    
 		$i = 0;
 	    
-	    while($images['images'][$i])$i++;
-	    
-		    $item_default_image = $images['images'][$i - 1]['src'];
+	    while($images['images'][$i])
+	    {
+		    $item_default_image = $images['images'][$i]['src'];
+		    i++;
 		    
 
 		echo '<img src="'.$item_default_image.'" style="width: 200px; height: 230px;"/>';
+	    }
     } 
 }
 ?>
