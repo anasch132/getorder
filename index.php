@@ -23,7 +23,8 @@ foreach($collects as $collect){
     foreach($collect as $key => $value){ 
     		$products = shopify_call($token, $shop, "/admin/api/2020-07/products/".$value['collection_id'].".json", array(), 'GET');
 		$products = json_decode($products['response'], JSON_PRETTY_PRINT);
-
+		echo $products['product']['id'];
+	    exit();
     		$images = shopify_call($token, $shop, "/admin/api/2020-07/products/".$products['product']['id']."/images.json", array(), 'GET');
 		$images = json_decode($images['response'], JSON_PRETTY_PRINT);
 		$item_default_image = $images['images'][0]['src'];
