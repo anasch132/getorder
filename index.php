@@ -22,7 +22,7 @@ foreach($collects as $collect){
     foreach($collect as $key => $value){ 
     		$products = shopify_call($token, $shop, "/admin/api/2020-07/products/".$value['product_id'].".json", array(), 'GET');
 		$products = json_decode($products['response'], JSON_PRETTY_PRINT);
-		echo $products['product']['id'];
+		echo $hmac;
 	    
 
     		$images_count = shopify_call($token, $shop, "/admin/api/2020-07/products/".$products['product']['id']."/images.json", array(), 'GET');
