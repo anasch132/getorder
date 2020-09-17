@@ -25,10 +25,10 @@ foreach($collects as $collect){
 		$products = json_decode($products['response'], JSON_PRETTY_PRINT);
 		echo $products['product']['id'];
 	    exit();
-    		$images = shopify_call($token, $shop, "/admin/api/2020-07/products/".$products['product']['id']."/images.json", array(), 'GET');
-		$images = json_decode($images['response'], JSON_PRETTY_PRINT);
-		$item_default_image = $images['images'][0]['src'];
+    		//$images = shopify_call($token, $shop, "/admin/api/2020-07/products/".$products['product']['id']."/images.json", array(), 'GET');
+	//	$images = json_decode($images['response'], JSON_PRETTY_PRINT);
+	//	$item_default_image = $images['images'][0]['src'];
 
-		echo '<img src="'.$item_default_image.'" style="width: 200px; height: 230px;"/>';
+	//	echo '<img src="'.$item_default_image.'" style="width: 200px; height: 230px;"/>';
     } 
 ?>
