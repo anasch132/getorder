@@ -1,5 +1,7 @@
 <?php
-// require_once("inc/functions.php");
+require_once("inc/functions.php");
+
+require __DIR__ . '/vendor/autoload.php';
 
 // $requests = $_GET;
 // $hmac = $_GET['hmac'];
@@ -49,25 +51,21 @@
 //     } 
 // }
 
-require 'php-shopify-api/src/shopify.php'; 
 
-// use src\ShopifyClient;
 
-$api = new Shopify('firstone132.myshopify.com', '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');
+$config = array(
+    'ShopUrl' => 'firstone.myshopify.com',
+    'ApiKey' => '62287d8b77b63f810b587078ac18c894',
+    'SharedSecret' => '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',
+);
 
-// Get all products
-// $result = $api->call('GET', 'admin/products.json');
+PHPShopify\ShopifySDK::config($config);
 
-// Get the products with ids of '632910392' and '921728736' with only the 'id', 'images', and 'title' fields
+//your_authorize_url.php
+$scopes = 'read_products,write_products,read_script_tags,write_script_tags, read_orders, write_orders';
+//This is also valid
+//$scopes = array('read_products','write_products','read_script_tags', 'write_script_tags'); 
+$redirectUrl = 'https://getorder.herokuapp.com/install.php';
 
-// Create a new "Burton Custom Freestyle 151" product
-$result = $api->call('POST', 'admin/products.json', [
-    'product' => [
-        "title"        => "Burton Custom Freestyle 151",
-        "body_html"    => "<strong>Good snowboard!</strong>",
-        "vendor"       => "Burton",
-        "product_type" => "Snowboard",
-        "tags"         => 'Barnes & Noble, Johns Fav, "Big Air"',
-    ],
-]);
+\PHPShopify\AuthHelper::createAuthRequest($scopes, $redirectUrl);
 ?>
