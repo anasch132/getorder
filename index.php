@@ -10,12 +10,16 @@ $config = array(
 
 $shopify = new PHPShopify\ShopifySDK($config);
 
+
+$products = $shopify->Product->get();
+
+
 $order = array (
     "email" => "foo@example.com",
     "fulfillment_status" => "unfulfilled",
     "line_items" => [
       [
-          "variant_id" => 5302158327966,
+          "variant_id" => 34711827677342,
           "quantity" => 5
       ]
     ]
