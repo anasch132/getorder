@@ -49,18 +49,25 @@
 //     } 
 // }
 
-require 'vendor/autoload.php'; 
+require 'php-shopify-api/src/shopify.php'; 
 
-use src\ShopifyClient;
+// use src\ShopifyClient;
 
-$client = new ShopifyClient($access_token, "yourshop.myshopify.com");
-$products = $client->products->readList();
+$api = new Shopify('firstone132.myshopify.com', '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');
 
-$access_token = "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";
+// Get all products
+// $result = $api->call('GET', 'admin/products.json');
 
-$client = new ShopifyClient($access_token, "firstone132.myshopify.com");
-$products = $client->products->readList();
+// Get the products with ids of '632910392' and '921728736' with only the 'id', 'images', and 'title' fields
 
-$newOrder = ['line_items' => [['title' => 'just a test', 'price' => 4]]];
-$response = $client->orders->create($newOrder);
+// Create a new "Burton Custom Freestyle 151" product
+$result = $api->call('POST', 'admin/products.json', [
+    'product' => [
+        "title"        => "Burton Custom Freestyle 151",
+        "body_html"    => "<strong>Good snowboard!</strong>",
+        "vendor"       => "Burton",
+        "product_type" => "Snowboard",
+        "tags"         => 'Barnes & Noble, Johns Fav, "Big Air"',
+    ],
+]);
 ?>
