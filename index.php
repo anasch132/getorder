@@ -1,7 +1,4 @@
 <?php
-require_once("inc/functions.php");
-
-require __DIR__ . '/vendor/autoload.php';
 
 // $requests = $_GET;
 // $hmac = $_GET['hmac'];

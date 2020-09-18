@@ -4,8 +4,8 @@
 require_once("inc/functions.php");
 
 // Set variables for our request
-$api_key = "dfbdc64f7a0b4f13f5c33520e52146f7";
-$shared_secret = "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";
+$api_key = "7ebf9c0f47534e46963ff61f89347a88";
+$shared_secret = "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";
 $params = $_GET; // Retrieve all request parameters
 $hmac = $_GET['hmac']; // Retrieve HMAC request parameter
 
@@ -42,6 +42,7 @@ if (hash_equals($hmac, $computed_hmac)) {
 
 	// Show the access token (don't do this in production!)
 	echo $access_token;
+	exit();
 
 } else {
 	// Someone is trying to be shady!
