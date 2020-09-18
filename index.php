@@ -1,5 +1,7 @@
 <?php
 
+require __DIR__ . '/vendor/autoload.php';
+
 $config = array(
     'ShopUrl' => 'firstone132.myshopify.com',
     'AccessToken' => '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',
