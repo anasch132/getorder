@@ -1,21 +1,16 @@
 <?php
 
-$config = array(
-    'ShopUrl' => 'firstone132.myshopify.com',
-    'AccessToken' => '7ebf9c0f47534e46963ff61f89347a88',
-);
-
-PHPShopify\ShopifySDK::config($config);
-
-//your_authorize_url.php
+// Set variables for our request
+$shop = $_GET['shop'];
+$api_key = "dfbdc64f7a0b4f13f5c33520e52146f7";
 $scopes = 'read_products,write_products,read_script_tags,write_script_tags, read_orders, write_orders';
-//This is also valid
-//$scopes = array('read_products','write_products','read_script_tags', 'write_script_tags'); 
-$redirectUrl = 'https://getorder.herokuapp.com/install.php';
+$redirect_uri = "https://getorder.herokuapp.com/install.php";
 
-\PHPShopify\AuthHelper::createAuthRequest($scopes, $redirectUrl);
-PHPShopify\ShopifySDK::config($config);
-$accessToken = \PHPShopify\AuthHelper::getAccessToken();
+// Build install/approval URL to redirect to
+$install_url = "https://" . $shop . ".myshopify.com/admin/oauth/authorize?client_id=" . $api_key . "&scope=" . $scopes . "&redirect_uri=" . urlencode($redirect_uri);
 
-echo $accessToken;
+// Redirect
+header("Location: " . $install_url);
+die();
+
 ?>
