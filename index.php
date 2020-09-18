@@ -10,26 +10,51 @@
 // $token = "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";
 // $shop = "firstone132";
 
-// $collectionList = shopify_call($token, $shop, "/admin/api/2020-07/custom_collections.json", array(), 'GET');
+// $collectionList = shopify_call($token, $shop, "/admin/api/2020-07/orders.json?status=any", array(), 'GET');
 // $collectionList = json_decode($collectionList['response'], JSON_PRETTY_PRINT);
+
+
+// echo $collectionList['orders']['id'][0];
+// exit();
 // $collection_id = $collectionList['custom_collections'][0]['id'];
 
 // $array = array("collection_id"=>$collection_id);
 // $collects = shopify_call($token, $shop, "/admin/api/2020-07/collects.json", $array, 'GET');
 // $collects = json_decode($collects['response'], JSON_PRETTY_PRINT);
 
-
 // foreach($collects as $collect){ 
 //     foreach($collect as $key => $value){ 
-//     	$products = shopify_call($token, $shop, "/admin/api/2020-07/products/".$value['product_id'].".json", array(), 'GET');
+//     		$products = shopify_call($token, $shop, "/admin/api/2020-07/products/".$value['product_id'].".json", array(), 'GET');
 // 		$products = json_decode($products['response'], JSON_PRETTY_PRINT);
-// 		echo $products['product']['id'];
-//     }
+// 		echo $hmac;
+	    
+
+//     		$images_count = shopify_call($token, $shop, "/admin/api/2020-07/products/".$products['product']['id']."/images.json", array(), 'GET');
+//     		$images = shopify_call($token, $shop, "/admin/api/2020-07/products/".$products['product']['id']."/images.json", array(), 'GET');
+// 	    	$image_count = json_decode($image['reponse'], JSON_PRETTY_PRINT);
+// 		$images = json_decode($images['response'], JSON_PRETTY_PRINT);
+	    	
+	    	
+	    
+// 		$i = 0;
+	    
+// 	    while($images['images'][$i])
+// 	    {
+// 		    $item_default_image = $images['images'][$i]['src'];
+// 		    $i++;
+		    
+
+// 		echo '<img src="'.$item_default_image.'" style="width: 200px; height: 230px;"/>';
+// 	    }
+//     } 
 // }
 
 require 'vendor/autoload.php'; 
 
-use Shopify\ShopifyClient;
+use src\ShopifyClient;
+
+$client = new ShopifyClient($access_token, "yourshop.myshopify.com");
+$products = $client->products->readList();
 
 $access_token = "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";
 
@@ -39,7 +64,3 @@ $products = $client->products->readList();
 $newOrder = ['line_items' => [['title' => 'just a test', 'price' => 4]]];
 $response = $client->orders->create($newOrder);
 ?>
-
-
-
-
