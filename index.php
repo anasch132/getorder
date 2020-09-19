@@ -26,7 +26,7 @@ if (isset($_POST['submit']))
       "customer" => [
         "first_name" => $_POST['first_name'],
         "last_name" => $_POST['last_name'],
-        "phone" => $_POST['email']
+        "emal" => $_POST['email']
       ],
       "billing_address" => [
         "first_name" => $_POST['first_name'],
