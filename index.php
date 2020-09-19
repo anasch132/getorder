@@ -4,8 +4,8 @@ session_start();
 
 require __DIR__ . '/vendor/autoload.php';
 $config = array(
-  'ShopUrl' => 'yourshop.myshopify.com',
-  'AccessToken' => '***ACCESS-TOKEN-FOR-THIRD-PARTY-APP***',
+  'ShopUrl' => 'firstone132.myshopify.com',
+  'AccessToken' => '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',
 );
 
 
