@@ -4,9 +4,11 @@ session_start();
 
 require __DIR__ . '/vendor/autoload.php';
 $config = array(
-  'ShopUrl' => 'firstone132.myshopify.com',
-  'AccessToken' => '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',
+  'ShopUrl' => 'manageorder.myshopify.com',
+  'ApiKey' => '15c1f02e9423589aa54d9d44a0b0ac90',
+  'Password' => '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',
 );
+
 
 
 $shopify = new PHPShopify\ShopifySDK($config);
@@ -57,26 +59,26 @@ echo "order done!";
 }
 
 
-$list = array(
-    'status' => 'any',
-);
-$orders = $shopify->Order->get($list);
+// $list = array(
+//     'status' => 'any',
+// );
+// $orders = $shopify->Order->get($list);
 
-// print_r($orders);
-// exit();
-foreach ($orders as $oneorder)
-{
-    print($oneorder['id']);
-    echo "  ";
-    print($oneorder['email']);
-    echo "<br>";
+// // print_r($orders);
+// // exit();
+// foreach ($orders as $oneorder)
+// {
+//     print($oneorder['id']);
+//     echo "  ";
+//     print($oneorder['email']);
+//     echo "<br>";
     
-}
+// }
 
 ?>
 
 
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -101,4 +103,4 @@ foreach ($orders as $oneorder)
 </form>
     
 </body>
-</html> -->
+</html>
