@@ -53,26 +53,30 @@ if (isset($_POST['submit']))
 $shopify->Order->post($order);
 
 
-
-
 echo "order done!";
-exit();
 }
-// $list = array(
-//     'status' => 'open',
-//     'created_at_min' => '2016-06-25T16:15:47-04:00',
-//     'fields' => 'email, id, phone'
-// );
-// $orders = $shopify->Order->get($list);
 
+
+$list = array(
+    'status' => 'any',
+);
+$orders = $shopify->Order->get($list);
 
 // print_r($orders);
-
+// exit();
+foreach ($orders as $oneorder)
+{
+    print($oneorder['id']);
+    echo "  ";
+    print($oneorder['email']);
+    echo "<br>";
+    
+}
 
 ?>
 
 
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -97,4 +101,4 @@ exit();
 </form>
     
 </body>
-</html>
+</html> -->

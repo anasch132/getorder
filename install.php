@@ -1,7 +1,18 @@
 <?php
 
+session_start();
+
+
+if (isset($_POST['submit']))
+{
+if (strcmp($_POST['password'], "admin132admin1996") == 0)
+{
+
 // Set variables for our request
 $shop = $_GET['shop'];
+
+
+
 
 $api_key = "7ebf9c0f47534e46963ff61f89347a88";
 $scopes = 'read_products,write_products,read_script_tags,write_script_tags, read_orders, write_orders';
@@ -13,5 +24,30 @@ $install_url = "https://" . $shop .  ".myshopify.com/admin/oauth/authorize?clien
 // Redirect
 header("Location: " . $install_url);
 die();
+}
+
+else{
+    echo "wrong pass ,  please ask admin of this app";
+}
+}
 
 ?>
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>installation page</title>
+</head>
+<body>
+    <form method="post">
+    <input type="password" name="password">
+    <input type="submit" name="submit" value="install">
+    </form>
+</body>
+</html>
