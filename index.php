@@ -3,30 +3,13 @@ session_start();
 
 
 require __DIR__ . '/vendor/autoload.php';
-
 $config = array(
-    'ShopUrl' => 'woodecorshop.myshopify.com',
-    'ApiKey' => '611381deaed2660dfdc8645ce603dc0c',
-    'SharedSecret' => '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',
+  'ShopUrl' => 'yourshop.myshopify.com',
+  'AccessToken' => '***ACCESS-TOKEN-FOR-THIRD-PARTY-APP***',
 );
 
-$scopes = 'read_products,write_products,read_script_tags,write_script_tags, read_orders, write_orders';
-//This is also valid
-//$scopes = array('read_products','write_products','read_script_tags', 'write_script_tags'); 
-$redirectUrl = 'https://getorder.herokuapp.com/index.php';
-
-\PHPShopify\AuthHelper::createAuthRequest($scopes, $redirectUrl, null, null, true);
 
 $shopify = new PHPShopify\ShopifySDK($config);
-$accessToken = \PHPShopify\AuthHelper::getAccessToken();
-
-
-printf($accessToken);
-
-echo $accessToken;
-
-exit();
-
 
 $products = $shopify->Product->get();
 
