@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <link rel="stylesheet" href="./style.css">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="frame" style="width: 100%;">
+    <button onclick="order()">order</button>    
+    </div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    function order(){
+    var x = new XMLHttpRequest();
+x.open("GET", "https://woodecor.ma/products/criss-cross.xml", true);
+x.onreadystatechange = function () {
+  if (x.readyState == 4 && x.status == 200)
+  {
+    var doc = x.responseXML;
+    var id = doc.getElementsByTagName("id")[1].childNodes[0].nodeValue;
+    var iframe = document.createElement("iframe");
+    iframe.src = "https://getorder.herokuapp.com?variantid=" + id;
+    console.log(id);
+    document.getElementById("frame").appendChild(iframe);
+
+    }
+};
+x.send(null);
+    }
+</script>
+</html>

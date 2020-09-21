@@ -1,12 +1,18 @@
 <?php
 session_start();
 
+$variantId = $_GET['variantid'];
+if (!isset($variantId))
+{
+  echo "please put a regular product link";
+  exit();
+}
 
 require __DIR__ . '/vendor/autoload.php';
 $config = array(
-  'ShopUrl' => 'manageorder.myshopify.com',
-  'ApiKey' => '15c1f02e9423589aa54d9d44a0b0ac90',
-  'Password' => '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',
+  'ShopUrl' => 'woodecorshop.myshopify.com',
+  'ApiKey' => '611381deaed2660dfdc8645ce603dc0c',
+  'Password' => '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',
 );
 
 
@@ -21,7 +27,7 @@ if (isset($_POST['submit']))
     $order = array (
         "line_items" => [
         [
-          "variant_id" => 36265683648677,
+          "variant_id" => $variantId,
           "quantity" => 1
         ]
       ],
@@ -57,6 +63,16 @@ $shopify->Order->post($order);
 
 echo "order done!";
 }
+function filtered($var)
+{
+    // returns whether the input integer is even
+    return $var["handle"] == "its-a-test-1";
+}
+
+$product = $shopify->Product()->get();
+
+$product = array_filter($product, "filtered");
+// print_r($product);
 
 
 // $list = array(
@@ -64,16 +80,19 @@ echo "order done!";
 // );
 // $orders = $shopify->Order->get($list);
 
-// // print_r($orders);
+// print_r($orders);
 // // exit();
-// foreach ($orders as $oneorder)
-// {
-//     print($oneorder['id']);
-//     echo "  ";
-//     print($oneorder['email']);
-//     echo "<br>";
+foreach ($product as $oneorder)
+{
+   foreach($oneorder as $elem)
+   {
+    print($elem);
+    echo "<br>";
+   }
+    // print($oneorder[0]);
+   echo "<br><br>--------------------------------------------<br>";
     
-// }
+}
 
 ?>
 
