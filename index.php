@@ -25,12 +25,18 @@ if (isset($_POST['submit']))
 {
 
     $order = array (
+      "order" => [
+        "email" => $_POST['email'],
+        "fulfillment_status" => "fulfilled",
+        "send_receipt" => true,
+        "send_fulfillment_receipt" => true,
         "line_items" => [
-        [
-          "variant_id" => $variantId,
-          "quantity" => 1
+          [
+            "variant_id" => $variantId,
+            "quantity" => 1
+          ]
         ]
-      ],
+          ],
       "customer" => [
         "first_name" => $_POST['first_name'],
         "last_name" => $_POST['last_name'],
