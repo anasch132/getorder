@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$variantId = $_GET['variantid'];
+$variantId = $_POST['variantid'];
 if (!isset($variantId))
 {
   echo "please put a regular product link";
@@ -38,29 +38,28 @@ if (isset($_POST['submit']))
         ]
           ],
       "customer" => [
-        "first_name" => $_POST['first_name'],
-        "last_name" => $_POST['last_name'],
-        "emal" => $_POST['email']
+        "first_name" => $_POST['name'],
+        
+        "email" => $_POST['email']
       ],
       "billing_address" => [
-        "first_name" => $_POST['first_name'],
-        "last_name" => $_POST['last_name'],
-        "address1" => $_POST['address1'],
+        "first_name" => $_POST['name'],
+        
+        "address1" => $_POST['address'],
         "phone" => $_POST['phone'],
-        "city" => $_POST['city'],
-        "province" => $_POST['province'],
-        "country" => $_POST['country'],
-        "zip" => $_POST['zip']
+        "city" => "null",
+        "province" => "null",
+        "country" => "null",
+        "zip" => "null"
       ],
       "shipping_address"=> [
-        "first_name"=> $_POST['first_name'],
-        "last_name"=> $_POST['last_name'],
-        "address1"=> $_POST['address1'],
+        "first_name"=> $_POST['name'],
+        "address1"=> $_POST['address'],
         "phone"=> $_POST['phone'],
-        "city"=> $_POST['city'],
-        "province"=> $_POST['province'],
-        "country"=> $_POST['country'],
-        "zip"=> $_POST['zip']
+        "city"=> "null",
+        "province"=> "null",
+        "country"=> "null",
+        "zip"=> "null"
       ]
 );
 
@@ -88,18 +87,6 @@ $product = array_filter($product, "filtered");
 
 // print_r($orders);
 // // exit();
-foreach ($product as $oneorder)
-{
-   foreach($oneorder as $elem)
-   {
-    print($elem);
-    echo "<br>";
-   }
-    // print($oneorder[0]);
-   echo "<br><br>--------------------------------------------<br>";
-    
-}
-
 ?>
 
 
