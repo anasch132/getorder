@@ -26,7 +26,7 @@ if (isset($_POST['submit']))
 
     $order = array (
       "email"=> $_POST['email'],
-      "fulfillment_status" => "fulfilled",
+      "fulfillment_status" => "unfulfilled",
         "send_receipt" => true,
         "send_fulfillment_receipt" => true,
         "line_items" => [
