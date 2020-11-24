@@ -10,9 +10,9 @@ if (!isset($variantId))
 
 require __DIR__ . '/vendor/autoload.php';
 $config = array(
-  'ShopUrl' => 'woodecorshop.myshopify.com',
-  'ApiKey' => '611381deaed2660dfdc8645ce603dc0c',
-  'Password' => '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',
+  'ShopUrl' => 'https://zinniatic.myshopify.com/',
+  'ApiKey' => 'e29918eda1e541b915c2b38eacef328e',
+  'Password' => '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',
 );
 
 
