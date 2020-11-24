@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$variantId = $_POST['variantid'];
+$variantId = $_GET['variantid'];
 if (!isset($variantId))
 {
   echo "please put a regular product link";
