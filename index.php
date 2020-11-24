@@ -1,18 +1,6 @@
 <?php
 session_start();
 
-$variantId = $_GET['variantid'];
-$name = $_GET['name'];
-$address = $address;
-$phone = $phone;
-
-
-if (!isset($variantId))
-{
-  echo "please put a regular product link";
-  exit();
-}
-
 require __DIR__ . '/vendor/autoload.php';
 $config = array(
   'ShopUrl' => 'https://zinniatic.myshopify.com/',
@@ -26,50 +14,57 @@ $shopify = new PHPShopify\ShopifySDK($config);
 
 $products = $shopify->Product->get();
 
+if (isset($_POST['submit']))
+{
 
+    echo "hereeeeeeeee";
     $order = array (
       "order" => [
-        "email" => "null",
+        "email" => $_POST['email'],
         "fulfillment_status" => "fulfilled",
         "send_receipt" => true,
         "send_fulfillment_receipt" => true,
-        "line_items" => [
-          [
-            "variant_id" => $variantId,
-            "quantity" => 1
-          ]
-        ]
           ],
+          "line_items" => [
+            [
+              "variant_id" => "34753233387686",
+              "quantity" => 1
+            ]
+            ],
       "customer" => [
-        "first_name" => $name,
-        
-        "email" => "null"
+        "first_name" => $_POST['first_name'],
+        "last_name" => $_POST['last_name'],
+        "emal" => $_POST['email']
       ],
       "billing_address" => [
-        "first_name" => $name,
-        
-        "address1" => $address,
-        "phone" => $phone,
-        "city" => "null",
-        "province" => "null",
-        "country" => "null",
-        "zip" => "null"
+        "first_name" => $_POST['first_name'],
+        "last_name" => $_POST['last_name'],
+        "address1" => $_POST['address1'],
+        "phone" => $_POST['phone'],
+        "city" => $_POST['city'],
+        "province" => $_POST['province'],
+        "country" => $_POST['country'],
+        "zip" => $_POST['zip']
       ],
       "shipping_address"=> [
-        "first_name"=> $name,
-        "address1"=> $address,
-        "phone"=> $phone,
-        "city"=> "null",
-        "province"=> "null",
-        "country"=> "null",
-        "zip"=> "null"
+        "first_name"=> $_POST['first_name'],
+        "last_name"=> $_POST['last_name'],
+        "address1"=> $_POST['address1'],
+        "phone"=> $_POST['phone'],
+        "city"=> $_POST['city'],
+        "province"=> $_POST['province'],
+        "country"=> $_POST['country'],
+        "zip"=> $_POST['zip']
       ]
 );
+
+
 
 $shopify->Order->post($order);
 
 
 echo "order done!";
+}
 function filtered($var)
 {
     // returns whether the input integer is even
@@ -89,4 +84,16 @@ $product = array_filter($product, "filtered");
 
 // print_r($orders);
 // // exit();
+foreach ($product as $oneorder)
+{
+   foreach($oneorder as $elem)
+   {
+    print($elem);
+    echo "<br>";
+   }
+    // print($oneorder[0]);
+   echo "<br><br>--------------------------------------------<br>";
+    
+}
+
 ?>
