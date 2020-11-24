@@ -3,13 +3,9 @@ session_start();
 
 $variantId = $_GET['variantid'];
 $name = $_GET['name'];
-$address = $_GET['address'];
-$phone = $_GET['phone'];
+$address = $address;
+$phone = $phone;
 
-echo $name."\n";
-echo $phone."\n";
-echo $address."\n";
-exit();
 
 if (!isset($variantId))
 {
@@ -45,24 +41,24 @@ $products = $shopify->Product->get();
         ]
           ],
       "customer" => [
-        "first_name" => $_GET['name'],
+        "first_name" => $name,
         
         "email" => "null"
       ],
       "billing_address" => [
-        "first_name" => $_GET['name'],
+        "first_name" => $name,
         
-        "address1" => $_GET['address'],
-        "phone" => $_GET['phone'],
+        "address1" => $address,
+        "phone" => $phone,
         "city" => "null",
         "province" => "null",
         "country" => "null",
         "zip" => "null"
       ],
       "shipping_address"=> [
-        "first_name"=> $_GET['name'],
-        "address1"=> $_GET['address'],
-        "phone"=> $_GET['phone'],
+        "first_name"=> $name,
+        "address1"=> $address,
+        "phone"=> $phone,
         "city"=> "null",
         "province"=> "null",
         "country"=> "null",
