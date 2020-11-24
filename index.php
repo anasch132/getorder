@@ -2,6 +2,15 @@
 session_start();
 
 $variantId = $_GET['variantid'];
+$name = $_GET['name'];
+$address = $_GET['address'];
+$phone = $_GET['phone'];
+
+echo $name."\n";
+echo $phone."\n";
+echo $address."\n";
+exit();
+
 if (!isset($variantId))
 {
   echo "please put a regular product link";
@@ -24,7 +33,7 @@ $products = $shopify->Product->get();
 
     $order = array (
       "order" => [
-        "email" => $_POST['email'],
+        "email" => "null",
         "fulfillment_status" => "fulfilled",
         "send_receipt" => true,
         "send_fulfillment_receipt" => true,
@@ -36,24 +45,24 @@ $products = $shopify->Product->get();
         ]
           ],
       "customer" => [
-        "first_name" => $_POST['name'],
+        "first_name" => $_GET['name'],
         
-        "email" => $_POST['email']
+        "email" => "null"
       ],
       "billing_address" => [
-        "first_name" => $_POST['name'],
+        "first_name" => $_GET['name'],
         
-        "address1" => $_POST['address'],
-        "phone" => $_POST['phone'],
+        "address1" => $_GET['address'],
+        "phone" => $_GET['phone'],
         "city" => "null",
         "province" => "null",
         "country" => "null",
         "zip" => "null"
       ],
       "shipping_address"=> [
-        "first_name"=> $_POST['name'],
-        "address1"=> $_POST['address'],
-        "phone"=> $_POST['phone'],
+        "first_name"=> $_GET['name'],
+        "address1"=> $_GET['address'],
+        "phone"=> $_GET['phone'],
         "city"=> "null",
         "province"=> "null",
         "country"=> "null",
