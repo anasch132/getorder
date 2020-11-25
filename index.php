@@ -70,7 +70,7 @@ if (1)
 $shopify->Order->post($order);
 
 
-echo "order done!";
+echo json_encode("order done!");
 }
 
 ?>
