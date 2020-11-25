@@ -41,28 +41,28 @@ if (1)
       ],
       "customer" => [
         "first_name" => $name,
-        "last_name" => "blank",
-        "emal" => "blank"
+        "last_name" => "",
+        "emal" => ""
       ],
       "billing_address" => [
         "first_name" => $name,
-        "last_name" => "blank",
+        "last_name" => "",
         "address1" => $address,
         "phone" => $phone,
-        "city" => "blank",
-        "province" => "blank",
-        "country" => "blank",
-        "zip" => "blank"
+        "city" => "",
+        "province" => "",
+        "country" => "",
+        "zip" => ""
       ],
       "shipping_address"=> [
         "first_name"=> $name,
-        "last_name"=> "blank",
+        "last_name"=> "",
         "address1"=> $address,
         "phone"=> $phone,
-        "city"=> "blank",
-        "province"=> "blank",
-        "country"=> "blank",
-        "zip"=> "blank"
+        "city"=> "",
+        "province"=> "",
+        "country"=> "",
+        "zip"=> ""
       ],
       "financial_status" => "pending",
 );
