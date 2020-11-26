@@ -65,12 +65,6 @@ if (1)
         "zip"=> ""
       ],
       "financial_status" => "pending",
-      "note_attributes"=> [
-      [
-         "name"=> $name,
-          "information"=> $phone." ".$address,
-      ]
-      ],
 );
 
 $shopify->Order->post($order);
