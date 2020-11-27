@@ -42,8 +42,7 @@ if (1)
       ],
       "customer" => [
         "first_name" => $name,
-        "last_name" => "",
-        "emal" => ""
+        "last_name" => ""
       ],
       "billing_address" => [
         "first_name" => $name,
@@ -55,7 +54,7 @@ if (1)
         "country" => "",
         "zip" => ""
       ],
-      "shipping_address"=> [
+      "shipping_address" => [
         "first_name"=> $name,
         "last_name"=> "",
         "address1"=> $address,
