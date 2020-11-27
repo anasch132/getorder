@@ -66,7 +66,6 @@ if (1)
         "zip"=> ""
       ],
       "financial_status" => "pending",
-      "note" => "Customer changed their mind.",
 );
 
 $shopify->Order->post($order);
