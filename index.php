@@ -27,6 +27,7 @@ if (1)
   $phone = $_GET['phone'];
   $name = $_GET['name'];
   $address = $_GET['address'];
+  $city = $_GET['city'];
 
     $order = array (
       "phone"=> $phone,
@@ -49,7 +50,7 @@ if (1)
         "last_name" => "",
         "address1" => $address,
         "phone" => $phone,
-        "city" => "",
+        "city" => $city,
         "province" => "",
         "country" => "",
         "zip" => ""
@@ -59,12 +60,13 @@ if (1)
         "last_name"=> "",
         "address1"=> $address,
         "phone"=> $phone,
-        "city"=> "",
+        "city"=>  $city,
         "province"=> "",
         "country"=> "",
         "zip"=> ""
       ],
       "financial_status" => "pending",
+      "note" => "Customer changed their mind.",
 );
 
 $shopify->Order->post($order);
