@@ -30,7 +30,7 @@ if (1)
   $city = $_GET['city'];
 
     $order = array (
-      "phone"=> $phone,
+      "phone" => $phone,
       "fulfillment_status" => "unfulfilled",
         "send_receipt" => true,
         "send_fulfillment_receipt" => true,
@@ -42,7 +42,7 @@ if (1)
       ],
       "customer" => [
         "first_name" => $name,
-        "last_name" => ""
+        "last_name" => "",
       ],
       "billing_address" => [
         "first_name" => $name,
