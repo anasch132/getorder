@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$variantId = "34753233387686";
+$variantId = "34753270415526";
 if (!isset($variantId))
 {
   echo "please put a regular product link";
