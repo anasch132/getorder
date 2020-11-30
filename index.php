@@ -1,5 +1,6 @@
 <?php
 session_start();
+header("Access-Control-Allow-Origin: *");
 
 $variantId = "34753270415526";
 if (!isset($variantId))
