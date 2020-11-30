@@ -1,8 +1,7 @@
 <?php
 session_start();
-header("Access-Control-Allow-Origin: *");
 
-$variantId = "34753270415526";
+$variantId = "34753233387686";
 if (!isset($variantId))
 {
   echo "please put a regular product link";
