@@ -2,7 +2,7 @@
 session_start();
 header("Access-Control-Allow-Origin: *");
 
-$variantId = "34753270415526";
+$variantId = $_GET['variantid'];
 if (!isset($variantId))
 {
   echo "please put a regular product link";
